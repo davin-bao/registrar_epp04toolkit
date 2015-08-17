@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema targetNamespace="urn:iana:xml:ns:eppcom-1.0"
+        xmlns:eppcom="urn:iana:xml:ns:eppcom-1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified">
+
+  <annotation>
+    <documentation>
+      Extensible Provisioning Protocol v1.0
+      shared structures schema.
+    </documentation>
+  </annotation>
+
+<!--
+Object authorization information types.
+-->
+  <complexType name="authInfoType">
+    <simpleContent>
+      <extension base="normalizedString">
+        <attribute name="type" type="eppcom:authType"/>
+        <attribute name="roid" type="eppcom:roidType"
+         use="optional"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <simpleType name="authType">
+    <restriction base="token">
+      <enumeration value="pw"/>
+    </restriction>
+  </simpleType>
+
+<!--
+<check> result type.
+-->
+  <simpleType name="checkType">
+    <restriction base="token">
+      <enumeration value="+"/>
+      <enumeration value="-"/>
+    </restriction>
+  </simpleType>
+
+<!--
+Abstract client and object identifier type.
+-->
+  <simpleType name="clIDType">
+    <restriction base="token">
+      <minLength value="3"/>
+      <maxLength value="16"/>
+    </restriction>
+  </simpleType>
+
+<!--
+DNS label type.
+-->
+  <simpleType name="labelType">
+    <restriction base="token">
+      <minLength value="1"/>
+      <maxLength value="255"/>
+    </restriction>
+  </simpleType>
+
+<!--
+Repository Object IDentifier type.
+-->
+  <simpleType name="roidType">
+    <restriction base="token">
+      <pattern value="\w{1,80}-\w{1,8}"/>
+    </restriction>
+  </simpleType>
+
+<!--
+Transfer status identifiers.
+-->
+  <simpleType name="trStatusType">
+    <restriction base="token">
+      <enumeration value="clientApproved"/>
+      <enumeration value="clientCancelled"/>
+      <enumeration value="clientRejected"/>
+      <enumeration value="pending"/>
+      <enumeration value="serverApproved"/>
+      <enumeration value="serverCancelled"/>
+    </restriction>
+  </simpleType>
+
+<!--
+End of schema.
+-->
+</schema>

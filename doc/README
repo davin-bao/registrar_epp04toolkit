@@ -1,0 +1,10 @@
+This directory contains pre-built online document packages for Neustar
+Registrar Toolkit (EPP-0.4) for Java and C++ 
+
+README                       - This file
+Epp-doc.0.2.5.zip            - Zip file containing Javadoc files for
+                               Neustar Registrar Toolkit for Java
+Epp-C++-doc.0.2.5.zip        - Zip/Gzip files containing DOC++ files for
+Epp-C++-doc.0.2.5.tar.gz     - Neustar Registrar Toolkit for C++
+
+-EOF-

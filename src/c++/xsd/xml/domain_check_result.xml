@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+  <response>
+    <result code="1000">
+      <msg>Command completed successfully</msg>
+    </result>
+    <resData>
+      <domain:chkData xmlns:domain="urn:iana:xml:ns:domain-1.0"
+       xsi:schemaLocation="urn:iana:xml:ns:domain-1.0
+       domain-1.0.xsd">
+        <domain:cd x="+">example1.com</domain:cd>
+        <domain:cd x="-">example2.com</domain:cd>
+        <domain:cd x="+">example3.com</domain:cd>
+      </domain:chkData>
+    </resData>
+    <unspec/>
+    <trID>
+      <clTRID>ABC-12346</clTRID>
+      <svTRID>54322-XYZ</svTRID>
+    </trID>
+  </response>
+</epp>

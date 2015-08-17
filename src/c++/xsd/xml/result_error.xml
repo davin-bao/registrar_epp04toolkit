@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+  <response>
+    <result code="2004">
+      <msg>Parameter value range error</msg>
+      <value>2525</value>
+    </result>
+    <result code="2005">
+      <msg>Parameter value syntax error</msg>
+      <value>ex(ample</value>
+      <value>abc.ex(ample</value>
+    </result>
+    <unspec/>
+    <trID>
+      <clTRID>ABC-12345</clTRID>
+      <svTRID>54321-XYZ</svTRID>
+    </trID>
+  </response>
+</epp>

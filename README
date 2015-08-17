@@ -1,1 +1,12 @@
-Test
+This directory contains Neustar Registrar Toolkit (EPP-0.4) for Java and C++
+
+* With software provided by http://2038bug.com/
+
+
+README      - This file
+LICENSE     - Neustar Registrar Toolkit License
+bin         - Directory containing pre-built binaries for supported platforms
+doc         - Directory containing pre-build online documents
+src         - Directory containing the source code of Neustar Registrar Toolkit
+
+-EOF-

@@ -1,0 +1,441 @@
+Neustar EPP Reference Implementation (Java)
+
+$Id: CHANGELOG,v 1.1 2005/12/06 20:11:35 wtan Exp $
+================================================================================
+0.2.5 - 03/12/2002
+
+- Added EPP Svcsub (Service Subscription) object support
+    Files added:
+	src/com/neulevel/epp/core/EppSvcsub.java
+	src/com/neulevel/epp/core/EppSvcsubParam.java
+
+	src/com/neulevel/epp/core/command/EppCommandCheckSvcsub.java
+	src/com/neulevel/epp/core/command/EppCommandDeleteSvcsub.java
+	src/com/neulevel/epp/core/command/EppCommandInfoSvcsub.java
+	src/com/neulevel/epp/core/command/EppCommandRenewSvcsub.java
+	src/com/neulevel/epp/core/command/EppCommandTransferSvcsub.java
+	src/com/neulevel/epp/core/command/EppCommandUpdateSvcsub.java
+
+    Files modified:
+	src/com/neulevel/epp/core/EppContactType.java
+	src/com/neulevel/epp/core/EppEntity.java
+	src/com/neulevel/epp/core/EppGreeting.java
+	src/com/neulevel/epp/core/EppObject.java
+
+	src/com/neulevel/epp/core/command/EppCommand.java
+	src/com/neulevel/epp/core/command/EppCommandCheck.java
+	src/com/neulevel/epp/core/command/EppCommandCreate.java
+	src/com/neulevel/epp/core/command/EppCommandDelete.java
+	src/com/neulevel/epp/core/command/EppCommandInfo.java
+	src/com/neulevel/epp/core/command/EppCommandRenew.java
+	src/com/neulevel/epp/core/command/EppCommandTransfer.java
+	src/com/neulevel/epp/core/command/EppCommandUpdate.java
+
+	src/com/neulevel/epp/core/response/EppResponseDataCheckSvcsub.java
+	src/com/neulevel/epp/core/response/EppResponseDataCreateSvcsub.java
+	src/com/neulevel/epp/core/response/EppResponseDataTransferSvcsub.java
+
+- Fixed Javadoc document typos in the following files
+	src/com/neulevel/epp/core/command/EppCommandCheckContact.java
+	src/com/neulevel/epp/core/command/EppCommandCheckHost.java
+	src/com/neulevel/epp/core/command/EppCommandInfoContact.java
+	src/com/neulevel/epp/core/command/EppCommandUpdateDomain.java
+	src/com/neulevel/epp/core/response/EppResponseDataCreateDomain.java
+
+- Added com.neulevel.biz package
+	src/com/neulevel/biz/Makefile
+	src/com/neulevel/biz/BizContact.java
+	src/com/neulevel/biz/BizProtect.java
+	src/com/neulevel/biz/BizAccount.java
+	src/com/neulevel/biz/BizLock.java
+	src/com/neulevel/biz/package.html
+
+- Added com.neulevel.us package
+	src/com/neulevel/us/Makefile
+	src/com/neulevel/us/UsRegistrant.java
+	src/com/neulevel/us/package.html
+
+- Added new test certs which expire at the end of 2005
+	test/testkeys.client.keystore
+	test/testkeys.client.private.pem
+	test/testkeys.client.prop
+	test/testkeys.client.public.pem
+	test/testkeys.client.trustore
+	test/testkeys.server.keystore
+	test/testkeys.server.private.pem
+	test/testkeys.server.prop
+	test/testkeys.server.public.pem
+	test/testkeys.server.trustore
+
+- Added new tests in the following files
+	test/EppCheckTest.java
+	test/EppResponseTest.java
+	test/EppTestServerTcp.java
+	test/EppTestClient.java
+	test/EppGreetingTest.java
+	test/EppCreateTest.java
+	test/EppDeleteTest.java
+	test/EppInfoTest.java
+	test/EppRenewTest.java
+	test/EppTransferTest.java
+	test/EppUpdateTest.java
+
+================================================================================
+0.2.4 - 11/30/2001
+
+- Extended the "postalLineType" length in contact-1.0.xsd from 30 to 64
+  xsd/contact-1.0.xsd, xsd/xml/contact-1.0.xsd
+
+- Added getLastNetTransaction() and isValid() methods in EppChannelTcp
+  for checking the last network transaction as well as valid channel handle
+  (Courtesy of Rick Wesson wessorh@ar.com)
+  EppChannelTcp.java
+
+- Added set/getTimeout() methods in EppMessageUtil for better handling of
+  network timeout problem (Courtesy of Kelly Riley Kelly.Riley@markmonitor.com)
+  EppMessageUtil.java
+
+================================================================================
+0.2.3 - 10/31/2001
+
+- Changed NeuLevel license text and source file header
+
+- Changed the result code for the <logout> command from 1000 to 1500 in
+  test/EppTestServerTcp.java
+
+================================================================================
+0.2.2 - 10/01/2001
+
+- Changed "kk:mm:ss" into "HH:mm:ss" for creating SimpleDateFormat
+  src/com/neulevel/epp/core/EppUtil.java
+
+- Made the authInfo fields in contact/domain info response data optional
+  xsd/contact-1.0.xsd xsd/xml/contact-1.0.xsd
+  xsd/domain-1.0.xsd  xsd/xml/domain-1.0.xsd
+
+- Changed "forTucows" into "fullNamespace" for creating XML messages with
+  namespace prefixes in tags. Added a public string variable for setting up
+  the run-time property.
+  src/com/neulevel/epp/core/EppUtil.java
+
+- Added code in EppTestClient.java for dumping out messages and supplying
+  EppCreds object with username/password in the login command
+  test/EppTestClient.java
+
+- Updated the new test keys that are going to expire on 12/30/2001
+  test/testkeys.*
+
+- Updated the RunTestTcp file for the correct Xerces version number
+  test/RunTestTcp
+
+- Removed the useless test/TestClient.java from source code tree
+
+================================================================================
+0.2.1 - 08/28/2001
+
+- Fixed typo in "Command Completed" --> "Command completed" (EppError.java)
+
+- Fixed typo in fromXML comments (the EPP Period type) --> (the EPP ... type)
+  (EppContactData.java EppE164.java EppStatus.java)
+
+================================================================================
+0.2.0 - 07/26/2001
+
+- Initial port for EPP-4 (06/29/2001)
+
+  Changes are made:
+
+  1 EppUtil.java
+
+    o Added static variable version for recording EPP version number
+    o Added set/getEppVersion() methods
+    o Added createElementNSUnspec() method for creating unspec object of SvcMenu
+    o Changed createElementNS() method for appending epp version number
+
+  2 EppError.java
+
+    o Changed result code description text, according to EPP-04
+    o Made result code 1302 deprecated
+    o Changed description text for result code 2202, according to EPP-04
+
+  3 EppServiceMenu.java
+
+    o Added "unspec" vector for recording "unspec" objects
+    o Added set/getUnspec() methods
+    o Added "unspec" object handling in from/toXML() methods
+
+  4 EppStatus.java
+
+    o Changed the object status description text, according to EPP-04
+    o Made default language as "en" instead of "en-US", according to EPP-04
+
+  5 EppObject.java
+
+    o Removed "linked" instance variable and get/setLinked() methods
+    o Removed "linked" related constants
+    o Removed "linked" handling in fromXMLCommon() method
+
+  6 EppContact.java
+
+    o Changed the object status codes, according to EPP-04
+    o Changed constructor with a contact id as its parameter
+    o Added get/setId() methods
+    o Added "id" handling in from/toXML() methods
+    o Removed "linked" handling in from/toXML() methods
+
+  7 EppDomain.java
+    
+    o Changed the object status codes, according to EPP-04
+    o Changed set/getRegistrant() methods for using id instead of roid
+ 
+  8 EppContactType.java
+
+    o Renamed instance variable "roid" to "id"
+    o Renamed set/getRoid() methods to set/getId()
+    o Changed "roid" to "id" in from/toXML() methods
+
+  9 EppHost.java
+
+    o Changed the object status codes, according to EPP-04
+    o Removed "linked" handling in from/toXML() methods
+
+ 10 EppCommandLogin.java
+
+    o Copied "unspec" field of a service menu into the internal login menu
+
+ 11 EppCommandTransferContact.java
+
+    o Renamed instance variable "roid" to "id"
+    o Renamed set/getRoid() methods to set/getId()
+    o Renamed parameter "roid" to "id" in two constructors
+    o Changed "roid" to "id" in from/toXML() methods
+
+ 12 EppCommandInfoContact.java
+
+    o Renamed instance variable "roid" to "id"
+    o Renamed set/getRoid() methods to set/getId()
+    o Renamed parameter "roid" to "id" in two constructors
+    o Changed "roid" to "id" in from/toXML() methods
+
+ 13 EppCommandUpdate.java
+
+    o Added add/removeStatus() methods with a status string as its parameter
+
+ 14 EppCommandUpdateContact.java
+
+    o Renamed instance variable "roid" to "id"
+    o Renamed set/getRoid() methods to set/getId()
+    o Renamed parameter "roid" to "id" in two constructors
+    o Changed "roid" to "id" in from/toXML() methods
+
+ 14 EppCommandDeleteContact.java
+
+    o Renamed instance variable "roid" to "id"
+    o Renamed set/getRoid() methods to set/getId()
+    o Renamed parameter "roid" to "id" in two constructors
+    o Changed "roid" to "id" in from/toXML() methods
+
+ 15 EppCommandCheckContact.java
+
+    o Renamed instance variable "roids" to "ids"
+    o Renamed add/getRoid() methods to add/getId()
+    o Renamed parameter "roid" to "id" in add/addId() methods
+    o Changed "roid" to "id" in from/toXML() methods
+
+ 16 EppResponse.java
+
+    o Renamed instance variable "msgQ" to "msgQCount"
+    o Added instance variable "msgQDate" for recording queue update timestamp
+    o Added set/getMessageQueueUpdated() methods
+    o Added "qDate" handling in from/toXML() methods
+
+ 17 EppResponseDataCreate.java
+
+    o Made instance variable "roid" deprecated
+    o Made set/getRoid() methods deprecated
+
+ 18 EppResponseDataCreateContact.java
+
+    o Added instance variable "id"
+    o Added set/getId() methods
+    o Renamed "roid" to "id" in contructor and from/toXML() methods
+
+ 19 EppResponseDataTransfer.java
+
+    o Changed the transfer status definitions, according to EPP-04
+
+ 20 EppResponseDataTransferContact.java
+
+    o Renamed instance variable "roid" to "id"
+    o Renamed set/getRoid() methods to set/getId()
+    o Renamed parameter "roid" to "id" in two constructors
+    o Changed "roid" to "id" in from/toXML() methods
+
+ 21 EppResponseDataCreateDomain.java
+
+    o Added two constructors without "roid"
+    o Made two constructors with "roid" deprecated
+
+ 22 EppResponseDataCreateHost.java
+
+    o Added one constructor without "roid"
+    o Made the constructor with "roid" deprecated
+
+ 23 Various test files:
+
+    o EppProfile
+    o EppTestClient
+    o EppTestServerTcp
+    o EppGreetingTest
+    o EppLoginTest
+    o EppCreateTest
+    o EppCheckTest
+    o EppUpdateTest
+    o EppResponseTest
+
+================================================================================
+0.1.5 - 07/25/2001
+
+================================================================================
+0.1.4 - 07/25/2001
+
+- Final cut for 0.1.4
+
+- Added support for BEEPCORE for java 0.9.6
+
+- Added support for BEEPCORE for Java 0.9.6 with PureTLS
+
+================================================================================
+0.1.3 - 05/30/2001
+
+- Migrated to SourceForge with CVS.
+
+- Added Public License file.
+
+- Fixed the bug in EppResponseDataCreateHost() that name is assigned with roid.
+
+- Fixed the bug in EppProfile.java/EppTestServerTcp.java that
+  EppResponseDataCreateHost should be used instead of
+  EppResponseDataCreateDomain
+
+- Added checks for values returned by getLocalName() and getPrefix() so that
+  the code would not break if namespace/schema validation is disabled in Xerces.
+
+- Added EppWriter class for generating XML strings that can be parsed by Tucows'
+  RTK, although it is Tucows' code needs to be fixed as it looks for tags like
+  "contact:roid" (bad practice). A user has to set java property:
+
+	 com.neulevel.epp.core.EppUtil.forTucows 
+
+  for using this feature. For example:
+
+         java -Dcom.neulevel.epp.core.EppUtil.forTucows EppTestClient ...
+
+- Fixed typo in EppCommandUpdateContact.java that new fax info would
+  overwrite new voice info in fromXML().
+
+- Fixed typo in EppCommandUpdateHost.java for fixing the method name for
+  getting a list of removed IP addresses.
+
+- Fixed typo in EppError.java
+
+- Changed internal data fields from protected to private in EppResponse.java
+
+- Added comments for roid in EppResponseDataCreate.java
+
+- Added null name check in EppResponse.java for method fromXML()
+
+- Added null name check in EppResponseDataCheck.java for method fromXML()
+
+- Fixed typo in getActionClientId() of EppResponseDataTransfer.java 
+
+================================================================================
+0.1.2 - 05/22/2001
+
+- Bug fix in BEEP transport, mainly move start/terminate methods from EppChannel
+  to EppChannelBeep/EppChannelTcp.
+
+- Added BEEP test server running under Beepd.
+
+0.1.1 - 05/15/2001
+
+- Initial release to TRC.
+
+================================================================================
+0.1.0 - 05/08/2001
+
+- Initial baseline release.
+
+================================================================================
+
+================================================================================
+0.1.4 - 07/25/2001
+
+- Final cut for 0.1.4
+
+- Added support for BEEPCORE for java 0.9.6
+
+- Added support for BEEPCORE for Java 0.9.6 with PureTLS
+
+================================================================================
+0.1.3 - 05/30/2001
+
+- Migrated to SourceForge with CVS.
+
+- Added Public License file.
+
+- Fixed the bug in EppResponseDataCreateHost() that name is assigned with roid.
+
+- Fixed the bug in EppProfile.java/EppTestServerTcp.java that
+  EppResponseDataCreateHost should be used instead of
+  EppResponseDataCreateDomain
+
+- Added checks for values returned by getLocalName() and getPrefix() so that
+  the code would not break if namespace/schema validation is disabled in Xerces.
+
+- Added EppWriter class for generating XML strings that can be parsed by Tucows'
+  RTK, although it is Tucows' code needs to be fixed as it looks for tags like
+  "contact:roid" (bad practice). A user has to set java property:
+
+	 com.neulevel.epp.core.EppUtil.forTucows 
+
+  for using this feature. For example:
+
+         java -Dcom.neulevel.epp.core.EppUtil.forTucows EppTestClient ...
+
+- Fixed typo in EppCommandUpdateContact.java that new fax info would
+  overwrite new voice info in fromXML().
+
+- Fixed typo in EppCommandUpdateHost.java for fixing the method name for
+  getting a list of removed IP addresses.
+
+- Fixed typo in EppError.java
+
+- Changed internal data fields from protected to private in EppResponse.java
+
+- Added comments for roid in EppResponseDataCreate.java
+
+- Added null name check in EppResponse.java for method fromXML()
+
+- Added null name check in EppResponseDataCheck.java for method fromXML()
+
+- Fixed typo in getActionClientId() of EppResponseDataTransfer.java 
+
+================================================================================
+0.1.2 - 05/22/2001
+
+- Bug fix in BEEP transport, mainly move start/terminate methods from EppChannel
+  to EppChannelBeep/EppChannelTcp.
+
+- Added BEEP test server running under Beepd.
+
+0.1.1 - 05/15/2001
+
+- Initial release to TRC.
+
+================================================================================
+0.1.0 - 05/08/2001
+
+- Initial baseline release.
+
+================================================================================

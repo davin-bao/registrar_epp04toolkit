@@ -1,0 +1,7 @@
+This directory contains source code of Neustar Registrar Toolkit for Java and C++
+
+README      - This file
+c++         - Directory containing Neustar Registrar Toolkit for C++
+java        - Directory containing Neustar Registrar Toolkit for Java
+
+-EOF-

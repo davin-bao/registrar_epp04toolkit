@@ -1,0 +1,18 @@
+This directory contains pre-built binary distributions of Neustar Registrar
+Toolkit for C++ for supported platforms:
+
+README                         - This file
+
+epp-c-hpux-aCC-0.2.5.zip       - Zip/Gzip files for HPUX B.11.00 with 
+epp-c-hpux-aCC-0.2.5.tar.gz    - aCC : HP ANSI C++ B3910B A.03.13 
+
+epp-c-linux-g++-0.2.5.zip      - Zip/Gzip files for RedHat Linux 7.1 with
+epp-c-linux-g++-0.2.5.tar.gz   - GCC/G++ 2.96
+
+epp-c-solaris-g++-0.2.5.zip    - Zip/Gzip files for Solaris 2.8 with
+epp-c-solaris-g++-0.2.5.tar.gz - GCC/G++ 2.95.2
+
+epp-c-win32-cl-0.2.5.zip       - Zip/Gzip files for Windows NT 4.0 with
+epp-c-win32-cl-0.2.5.tar.gz    - MS VC++ : 6.0 (CL 12.00.8168)
+
+-EOF-

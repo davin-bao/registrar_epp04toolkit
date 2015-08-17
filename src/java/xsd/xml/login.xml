@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+  <command>
+    <creds>
+      <clID>ClientX</clID>
+      <pw>foo-BAR2</pw>
+      <newPW>bar-FOO2</newPW>
+      <options>
+        <version>1.0</version>
+        <lang>en</lang>
+      </options>
+    </creds>
+    <login>
+      <svcs>
+        <contact:svc xmlns:contact="urn:iana:xml:ns:contact-1.0"
+         xsi:schemaLocation="urn:iana:xml:ns:contact-1.0 contact-1.0.xsd"/>
+        <domain:svc xmlns:domain="urn:iana:xml:ns:domain-1.0"
+         xsi:schemaLocation="urn:iana:xml:ns:domain-1.0 domain-1.0.xsd"/>
+        <host:svc xmlns:host="urn:iana:xml:ns:host-1.0"
+         xsi:schemaLocation="urn:iana:xml:ns:host-1.0 host-1.0.xsd"/>
+        <unspec>
+          <obj1ext:svc xmlns:obj1ext="http://custom/obj1ext-1.0"
+           xsi:schemaLocation="http://custom/obj1ext-1.0 obj1ext-1.0.xsd"/>
+        </unspec>
+      </svcs>
+    </login>
+    <unspec/>
+    <clTRID>ABC-12345</clTRID>
+  </command>
+</epp>

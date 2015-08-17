@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<epp xmlns="urn:iana:xml:ns:epp-1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="urn:iana:xml:ns:epp-1.0 epp-1.0.xsd">
+  <command>
+    <check>
+      <svcsub:check xmlns:svcsub="urn:iana:xml:ns:svcsub-1.0"
+       xsi:schemaLocation="urn:iana:xml:ns:svcsub-1.0
+       svcsub-1.0.xsd">
+        <svcsub:id>SVCSUB-SERVICE-1</svcsub:id>
+        <svcsub:id>SVCSUB-SERVICE-2</svcsub:id>
+        <svcsub:id>SVCSUB-SERVICE-3</svcsub:id>
+      </svcsub:check>
+    </check>
+    <clTRID>ABC-12345</clTRID>
+  </command>
+</epp>

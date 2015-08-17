@@ -1,0 +1,228 @@
+Neustar EPP Reference Implementation (C++)
+
+$Id: CHANGELOG,v 1.1 2005/12/06 20:11:35 wtan Exp $
+================================================================================
+0.2.5 - 03/12/2002
+
+- Added EPP Svcsub (Service Subscription) object support
+    Files added:
+	src/epp/core/EppSvcsub.cpp.hpp
+	src/epp/core/EppSvcsubParam.cpp.hpp
+
+	src/epp/core/command/EppCommandCheckSvcsub.cpp.hpp
+	src/epp/core/command/EppCommandDeleteSvcsub.cpp.hpp
+	src/epp/core/command/EppCommandInfoSvcsub.cpp.hpp
+	src/epp/core/command/EppCommandRenewSvcsub.cpp.hpp
+	src/epp/core/command/EppCommandTransferSvcsub.cpp.hpp
+	src/epp/core/command/EppCommandUpdateSvcsub.cpp.hpp
+
+	src/epp/core/response/EppResponseDataCheckSvcsub.cpp.hpp
+	src/epp/core/response/EppResponseDataCreateSvcsub.cpp.hpp
+	src/epp/core/response/EppResponseDataTransferSvcsub.cpp.hpp
+
+    Files modified:
+	src/epp/core/EppContactType.cpp.hpp
+	src/epp/core/EppEntity.cpp.hpp
+	src/epp/core/EppGreeting.hpp
+	src/epp/core/EppObject.cpp.hpp
+
+	src/epp/core/command/EppCommand.cpp.hpp
+	src/epp/core/command/EppCommandCheck.cpp
+	src/epp/core/command/EppCommandCreate.cpp
+	src/epp/core/command/EppCommandDelete.cpp
+	src/epp/core/command/EppCommandInfo.cpp
+	src/epp/core/command/EppCommandRenew.cpp
+	src/epp/core/command/EppCommandTreansfer.cpp
+	src/epp/core/command/EppCommandUpdate.cpp
+
+	src/epp/core/response/EppResponseData.cpp
+	src/epp/core/response/EppResponseDataCheck.cpp
+	src/epp/core/response/EppResponseDataPoll.cpp
+	src/epp/core/response/EppResponseDataTransfer.cpp
+
+- Fixed C++ document typos in the following files
+	src/epp/core/command/EppCommandCheckContact.hpp
+	src/epp/core/command/EppCommandTransfer.hpp
+	src/epp/core/command/EppCommandUpdateDomain.hpp
+	src/epp/core/response/EppResponseDataCreateContact.hpp
+	src/epp/core/response/EppResponseDataCreateDomain.hpp
+
+- Minor changes in fromXML methods in the following classes
+	src/epp/core/command/EppCommandTransferContact.cpp
+	src/epp/core/command/EppCommandTransferDomain.cpp
+
+- Added getContactId() methods in EppContactType
+        src/core/EppContactType.cpp EppContactType.hpp
+
+- Added BizContact/BizProtect/BizAccount/BizLock classes
+	biz/Makefile
+	biz/BizContact.cpp.hpp
+	biz/BizProtect.cpp.hpp
+	biz/BizAccount.cpp.hpp
+	biz/BizLock.cpp.hpp
+
+- Added UsRegistrant classes
+	us/Makefile
+	us/UsRegistrant.cpp.hpp
+
+- Added set/getSocketTimeout methods in EppSessionTcp
+  (Courtesy of Valentin Bozov valter@rodopi.com)
+	src/epp/transport/EppSessionTcp.cpp.hpp
+
+- Called send/recv/closesocket for WIN32 (Courtesy of Valentin Bozov valter@rodopi.com)
+	src/epp/transport/EppMessageUtil.cpp
+	src/epp/transport/tcp/EppSessionTcp.cpp
+	test/EppTestServerTcp.cpp
+
+- Added new test certs which expir at the end of 2005
+	test/testkeys.client.private.pem
+	test/testkeys.client.public.pem
+	test/testkeys.server.private.pem
+	test/testkeys.server.public.pem
+
+- Added new tests in the following files
+	test/RunTestTcp
+	test/EppTestCommand.cpp
+	test/EppTestCore.cpp
+	test/EppTestResponse.cpp
+	test/EppTestServerTcp.cpp
+	test/EppTestSSL.cpp
+
+- Fixed XERCES-C DOMString.subStringData() problem in EppServiceMenu::fromXML
+	src/core/EppServiceMenu.cpp
+
+================================================================================
+0.2.4 - 11/30/2001
+
+- Extended the "postalLineType" length in contact-1.0.xsd from 30 to 64
+  xsd/contact-1.0.xsd, xsd/xml/contact-1.0.xsd
+
+- Added "sys/time.h" in EppMessageUtil.cpp for RedHat Linux 7.0
+  src/epp/transport/EppMessageUtil.cpp
+
+================================================================================
+0.2.3 - 10/31/2001
+
+- Changed NeuLevel license text and source file header
+
+- Changed the result code for the <logout> command from 1000 to 1500 in
+  test/EppTestServerTcp.cpp
+
+================================================================================
+0.2.2 - 10/01/2001
+
+- Made the authInfo fields in contact/domain info response data optional
+  xsd/contact-1.0.xsd xsd/xml/contact-1.0.xsd
+  xsd/domain-1.0.xsd  xsd/xml/domain-1.0.xsd
+
+- Updated the new test keys that are going to expire on 12/30/2001
+  test/testkeys.*
+
+- Added hasOrg flag and get/setOrganizationFlag() methods for nullifying the
+  org field, if it is specified in the XML payload, but with an empty
+  value (This fix is not required for the Java API).
+  src/epp/core/EppContactData.cpp/hpp
+
+- Removed the requirement of contact address in fromXML() (This fix is not
+  required for the Java API).
+  src/epp/core/EppContactData.cpp
+
+- Added isNull() method to check if an EppAddress object is null (This fix
+  is not required for the Java API).
+  src/epp/core/EppAddress.hpp
+
+- Fixed the problem in fromXML() when <options> tag is missing.
+  src/epp/core/command/EppCreds.cpp
+
+- Removed duplcated message line (2003)
+  src/epp/core/EppError.cpp
+
+- Updated the RunTestTcp file for the correct epp library version number
+  test/RunTestTcp
+
+===============================================================================
+0.2.1 - 08/28/2001
+
+- Fixed typo in "Command Completed" --> "Command completed"
+  (EppError.cpp/hpp)
+
+- Fixed typo in fromXML comments "the EPP Period type" --> "the EPP ... type"
+  (EppContactData.hpp EppE164.hpp EppStatus.hpp)
+
+- Fixed typo in "EPPCOMMANDLOGIN_HPP" --> "EPPCOMMANDLOGOUT_HPP"
+  (EppCommandLogout.hpp)
+
+- Fixed typo in "getAddressRem()" --> getAddressRemoved()"
+  (EppCommandUpdateHost.hpp)
+
+- Fixed typo in statusFromXML() "host:status" --> "domain:status"
+  (EppCommandUpdate.cpp)
+
+- Fixed a potential memory corruption problem when there is an error in EppParser
+  (EppResponse.hpp EppResult.hpp/cpp EppChannelTcp.cpp)
+
+- Called "setExitOnFirstFatalError" in EppParser::init()
+  (EppParser.cpp)
+
+- Added descriptive messages when there is error in EppParser
+  (EppParser.hpp/cpp)
+
+- Added code for normalizing XML strings
+  (EppUtil.cpp)
+
+- Added code for handling session timeout for EPP server
+  (EppMessageUtil.hpp/cpp)
+
+================================================================================
+0.2.0 - 07/30/2001
+
+- Initial port for EPP-4 (06/29/2001)
+
+================================================================================
+0.1.5 - 07/25/2001dded virtual destructor in EppPollable
+
+- Modified EppResponseDataInfo::fromXML() for setting up freeable flag
+
+- Added SSL_free() call to EppSessionTcp
+
+- Added free() and SSL_free() in dumpSession()/dumpSSL() of
+  EppTestSSL/EppTestServerTcp
+
+- Changed Makefile.win32 to use MD/MDd options for DOMString::transcode() bug
+
+================================================================================
+0.1.4 - 07/25/2001
+
+- Final cut for 0.1.4
+
+- Various bug fixes, mainly memory leaks
+
+- Integrated with Xerces-C 1.5.1
+
+================================================================================
+0.1.3 - 07/10/2001
+
+- Initial port to Solaris with G++ 2.95.2 and SC 4.2
+
+- Supported client side authenticatin with OpenSSL 0.9.6.
+
+================================================================================
+0.1.2 - 07/06/2001
+
+- Added checking for runtime object types
+
+================================================================================
+0.1.1 - 07/06/2001
+
+- Initial port to hpux
+
+- Initial port to Windows NT (static library)
+
+================================================================================
+0.1.0 - 06/30/2001
+
+- Initial baseline release.
+
+- Initial port to linux
+
+================================================================================

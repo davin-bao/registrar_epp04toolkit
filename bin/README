@@ -1,0 +1,9 @@
+This directory contains pre-built binary distributions of Neustar Registrar
+Toolkit (EPP-0.4) for Java and C++.
+
+README - This file
+java   - Directory containing the binary of Neustar Registrar Toolkit for Java
+c++    - Directory containing the binary of Neustar Registrar Toolkit for C++
+         for supported platforms
+
+-EOF-

@@ -1,0 +1,9 @@
+This directory contains pre-built binary distributions of Neustar Registrar
+Toolkit:
+
+README             - This file
+Epp-bin.0.2.5.zip  - Pre-build binary of Neustar Registrar Toolkit for Java
+Epp-doc.0.2.5.zip  - Pre-build Javadoc for Neustar Registrar Toolkit for Java
+Epp-src.0.2.5.zip  - The source package of Neustar Registrar Toolkit for Java
+
+-EOF-
